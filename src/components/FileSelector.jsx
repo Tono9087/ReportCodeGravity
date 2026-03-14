@@ -127,22 +127,22 @@ export default function FileSelector({ allFiles, structure, onConfirm, onCancel 
   return (
     <div className="file-selector-panel glass">
       <div className="fs-header">
-        <h3>Select Files for PDF</h3>
-        <p>Choose which files to include in the generated report.</p>
+        <h3>Seleccionar Archivos para PDF</h3>
+        <p>Elige qué archivos incluir en el reporte generado.</p>
       </div>
       
       <div className="fs-toolbar">
         <button className="fs-tool-btn" onClick={handleSelectAll}>
-          <CheckSquare size={16} /> Select All
+          <CheckSquare size={16} /> Seleccionar Todo
         </button>
         <button className="fs-tool-btn" onClick={handleDeselectAll}>
-          <Square size={16} /> Deselect All
+          <Square size={16} /> Deseleccionar Todo
         </button>
         <button className="fs-tool-btn primary-outline" onClick={handleSelectSource}>
-          <FileCode2 size={16} /> Select Only Source Files
+          <FileCode2 size={16} /> Solo Archivos de Código
         </button>
         <button className="fs-tool-btn primary-outline" onClick={handleSelectJs}>
-          <FileCode2 size={16} /> Select Only .js Files
+          <FileCode2 size={16} /> Solo Archivos .js
         </button>
       </div>
 
@@ -151,11 +151,11 @@ export default function FileSelector({ allFiles, structure, onConfirm, onCancel 
       </div>
 
       <div className="fs-footer">
-        <span className="fs-count">{selectedPaths.size} files selected</span>
+        <span className="fs-count">{selectedPaths.size} archivos seleccionados</span>
         <div className="fs-actions">
-          <button className="fs-btn cancel" onClick={onCancel}>Cancel</button>
+          <button className="fs-btn cancel" onClick={onCancel}>Cancelar</button>
           <button className="fs-btn confirm" onClick={handleConfirm} disabled={selectedPaths.size === 0}>
-            Build Preview ({selectedPaths.size})
+            Vista Previa ({selectedPaths.size})
           </button>
         </div>
       </div>

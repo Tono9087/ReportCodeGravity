@@ -9,7 +9,7 @@ const UploadSection = ({ onZipUpload, onScreenshotsUpload, onRemoveScreenshot, i
       if (file.name.endsWith('.zip')) {
         onZipUpload(file);
       } else {
-        alert('Please upload a valid .zip file.');
+        alert('Por favor, sube un archivo .zip válido.');
       }
     }
   };
@@ -33,10 +33,10 @@ const UploadSection = ({ onZipUpload, onScreenshotsUpload, onRemoveScreenshot, i
     <section className="upload-section">
       <div className="upload-card">
         <FileArchive className="upload-icon zip-icon" />
-        <h3>Upload Project ZIP</h3>
-        <p>Supported extensions: js, ts, jsx, tsx, py, html, css, json, md</p>
+        <h3>Subir ZIP del Proyecto</h3>
+        <p>Extensiones soportadas: js, ts, jsx, tsx, py, html, css, json, md</p>
         <label className="upload-btn">
-          <span>Choose ZIP File</span>
+          <span>Elegir Archivo ZIP</span>
           <input 
             type="file" 
             accept=".zip" 
@@ -49,10 +49,10 @@ const UploadSection = ({ onZipUpload, onScreenshotsUpload, onRemoveScreenshot, i
 
       <div className="upload-card">
         <ImageIcon className="upload-icon img-icon" />
-        <h3>Upload Screenshots</h3>
-        <p>Supported formats: png, jpg, jpeg, webp</p>
+        <h3>Subir Capturas</h3>
+        <p>Formatos soportados: png, jpg, jpeg, webp</p>
         <label className="upload-btn alt">
-          <span>Choose Images</span>
+          <span>Elegir Imágenes</span>
           <input 
             type="file" 
             accept="image/png, image/jpeg, image/jpg, image/webp" 
@@ -66,7 +66,7 @@ const UploadSection = ({ onZipUpload, onScreenshotsUpload, onRemoveScreenshot, i
         {screenshots.length > 0 && (
           <div className="screenshots-preview-area">
             <div className="screenshots-count-badge">
-              {screenshots.length} image{screenshots.length !== 1 ? 's' : ''} added
+              {screenshots.length} imagen{screenshots.length !== 1 ? 'es' : ''} añadida{screenshots.length !== 1 ? 's' : ''}
             </div>
             <div className="screenshots-mini-grid">
               {screenshots.map((s, i) => (
@@ -75,7 +75,7 @@ const UploadSection = ({ onZipUpload, onScreenshotsUpload, onRemoveScreenshot, i
                   <button 
                     className="screenshot-remove-btn" 
                     onClick={() => onRemoveScreenshot(s.id)}
-                    title="Remove image"
+                    title="Quitar imagen"
                   >
                     <X size={12} />
                   </button>

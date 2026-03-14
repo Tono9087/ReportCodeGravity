@@ -150,12 +150,12 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.cover}>
-          <Text style={styles.title}>Project Documentation Report</Text>
+          <Text style={styles.title}>Reporte de Documentación del Proyecto</Text>
           <Text style={styles.subtitle}>{overview.filename}</Text>
           
           {snackUrl ? (
             <View style={{ width: '100%', alignItems: 'center' }}>
-              <Text style={styles.snackLabel}>Snack URL:</Text>
+              <Text style={styles.snackLabel}>URL de Snack:</Text>
               <Link src={snackUrl} style={styles.snackLink}>
                 {snackUrl}
               </Link>
@@ -165,7 +165,7 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
       </Page>
 
       <Page size="A4" style={styles.page} wrap>
-        <Text style={styles.sectionTitle}>Project Structure</Text>
+        <Text style={styles.sectionTitle}>Estructura del Proyecto</Text>
         <View style={styles.treeContainer}>
           {renderTree(structure)}
         </View>
@@ -190,11 +190,11 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
 
       {screenshots && screenshots.length > 0 && (
         <Page size="A4" style={styles.page} wrap>
-          <Text style={styles.sectionTitle}>Project Screenshots</Text>
+          <Text style={styles.sectionTitle}>Capturas de Pantalla del Proyecto</Text>
           {screenshots.map((img, idx) => (
             <View key={img.id} style={styles.screenshotItem} wrap={false}>
               <Image src={img.url} style={styles.screenshotImg} />
-              <Text style={styles.caption}>Screenshot {idx + 1}: {img.name}</Text>
+              <Text style={styles.caption}>Captura {idx + 1}: {img.name}</Text>
             </View>
           ))}
         </Page>
@@ -208,21 +208,21 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
           <View style={{ marginBottom: 15 }} wrap={false}>
             <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0F172A', marginBottom: 5 }}>S (Lo que Sabía):</Text>
             <Text style={{ fontSize: 12, color: '#334155', lineHeight: 1.5 }}>
-              {sqaData?.s || 'No response.'}
+              {sqaData?.s || 'Sin respuesta.'}
             </Text>
           </View>
           
           <View style={{ marginBottom: 15 }} wrap={false}>
             <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0F172A', marginBottom: 5 }}>Q (Lo que Quería saber):</Text>
             <Text style={{ fontSize: 12, color: '#334155', lineHeight: 1.5 }}>
-              {sqaData?.q || 'No response.'}
+              {sqaData?.q || 'Sin respuesta.'}
             </Text>
           </View>
           
           <View style={{ marginBottom: 15 }} wrap={false}>
             <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0F172A', marginBottom: 5 }}>A (Lo que Aprendí):</Text>
             <Text style={{ fontSize: 12, color: '#334155', lineHeight: 1.5 }}>
-              {sqaData?.a || 'No response.'}
+              {sqaData?.a || 'Sin respuesta.'}
             </Text>
           </View>
         </Page>

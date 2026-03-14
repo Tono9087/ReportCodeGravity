@@ -134,7 +134,7 @@ function App() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `Report-${projectData.overview.filename.replace('.zip', '') || 'Project'}.pdf`;
+      a.download = `Reporte-${projectData.overview.filename.replace('.zip', '') || 'Proyecto'}.pdf`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -153,7 +153,7 @@ function App() {
         <div className="header-content">
           <Settings className="logo-icon" />
           <h1>AutoReport Pro</h1>
-          <p>Generate clean, structured PDF reports from your codebases.</p>
+          <p>Genera reportes PDF limpios y estructurados desde tu código.</p>
         </div>
       </header>
 
@@ -170,7 +170,7 @@ function App() {
           <div className="export-section">
             {projectData && (
               <div className="snack-input-container">
-                <label className="snack-label">Snack URL <span style={{ color: '#ef4444' }}>*</span></label>
+                <label className="snack-label">URL de Snack <span style={{ color: '#ef4444' }}>*</span></label>
                 <input 
                   type="url" 
                   className="snack-input"
@@ -186,7 +186,7 @@ function App() {
               disabled={!projectData || isGenerating}
             >
               <FileDown className="btn-icon" />
-              {isGenerating ? 'Processing...' : 'Generate PDF'}
+              {isGenerating ? 'Procesando...' : 'Generar PDF'}
             </button>
             {projectData && (
               <>
@@ -197,11 +197,11 @@ function App() {
                       checked={isSqaEnabled} 
                       onChange={(e) => setIsSqaEnabled(e.target.checked)}
                     />
-                    <span>Include SQA Reflection Section</span>
+                    <span>Incluir Sección de Reflexión SQA</span>
                   </label>
                 </div>
                 <div className="status-badge success">
-                  Project Loaded: {projectData.overview.filename}
+                  Proyecto Cargado: {projectData.overview.filename}
                 </div>
               </>
             )}
@@ -265,8 +265,8 @@ function App() {
               <div className="empty-icon-wrap">
                 <FileDown className="empty-icon" />
               </div>
-              <h3>No Project Loaded</h3>
-              <p>Upload a .zip file and any screenshots to generate the preview.</p>
+              <h3>Ningún Proyecto Cargado</h3>
+              <p>Sube un archivo .zip y cualquier captura de pantalla para generar la vista previa.</p>
             </div>
           )}
         </div>

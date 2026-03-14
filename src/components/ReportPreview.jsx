@@ -57,12 +57,12 @@ const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl }) => {
       {/* 1. Cover Page */}
       <div className="report-page cover-page">
         <div className="cover-content">
-          <h1>Project Documentation Report</h1>
+          <h1>Reporte de Documentación del Proyecto</h1>
           <h2>{overview.filename}</h2>
           
           {snackUrl && (
             <div className="cover-snack-section">
-              <h3>Snack URL:</h3>
+              <h3>URL de Snack:</h3>
               <a href={snackUrl} target="_blank" rel="noopener noreferrer" className="cover-snack-link">
                 {snackUrl}
               </a>
@@ -73,7 +73,7 @@ const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl }) => {
 
       {/* 2. Project Structure */}
       <div className="report-page structure-page">
-        <h2>Project Structure</h2>
+        <h2>Estructura del Proyecto</h2>
         <div className="tree-container">
           {renderTree(structure)}
         </div>
@@ -104,12 +104,12 @@ const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl }) => {
       {/* 4. Screenshots */}
       {screenshots && screenshots.length > 0 && (
         <div className="report-page screenshots-page">
-          <h2>Project Screenshots</h2>
+          <h2>Capturas de Pantalla del Proyecto</h2>
           <div className="screenshots-grid">
             {screenshots.map((img, idx) => (
               <div key={img.id} className="screenshot-item">
-                <img src={img.url} alt={`Screenshot ${idx + 1}`} />
-                <p className="caption">Screenshot {idx + 1}: {img.name}</p>
+                <img src={img.url} alt={`Captura ${idx + 1}`} />
+                <p className="caption">Captura {idx + 1}: {img.name}</p>
               </div>
             ))}
           </div>
