@@ -90,7 +90,7 @@ function groupBy(array, key) {
 }
 
 function determineCategory(parts) {
-  if (parts.length === 1) return 'Archivos Raíz';
+  if (parts.length === 1) return 'Código Fuente';
 
   const commonCategories = ['src', 'components', 'pages', 'store', 'utils', 'assets'];
 

@@ -19,6 +19,8 @@ function App() {
   
   // Snack URL settings
   const [snackUrl, setSnackUrl] = useState('');
+  const [projectTitle, setProjectTitle] = useState('');
+  const [githubUrl, setGithubUrl] = useState('');
 
   const reportRef = useRef(null);
 
@@ -120,6 +122,11 @@ function App() {
       return;
     }
     
+    if (githubUrl.trim() && !githubUrl.trim().startsWith("https://github.com/")) {
+      alert("La URL de GitHub debe comenzar con https://github.com/");
+      return;
+    }
+    
     setIsGenerating(true);
     try {
       const blob = await pdf(
@@ -129,6 +136,8 @@ function App() {
           isSqaEnabled={isSqaEnabled}
           sqaData={sqaData}
           snackUrl={snackUrl}
+          projectTitle={projectTitle}
+          githubUrl={githubUrl}
         />
       ).toBlob();
       const url = URL.createObjectURL(blob);
@@ -169,16 +178,38 @@ function App() {
           
           <div className="export-section">
             {projectData && (
-              <div className="snack-input-container">
-                <label className="snack-label">URL de Snack <span style={{ color: '#ef4444' }}>*</span></label>
-                <input 
-                  type="url" 
-                  className="snack-input"
-                  placeholder="https://snack.expo.dev/@user/project"
-                  value={snackUrl}
-                  onChange={(e) => setSnackUrl(e.target.value)}
-                />
-              </div>
+              <>
+                <div className="snack-input-container">
+                  <label className="snack-label">Título del Proyecto:</label>
+                  <input 
+                    type="text" 
+                    className="snack-input"
+                    placeholder="Mi Proyecto"
+                    value={projectTitle}
+                    onChange={(e) => setProjectTitle(e.target.value)}
+                  />
+                </div>
+                <div className="snack-input-container">
+                  <label className="snack-label">Snack URL: <span style={{ color: '#ef4444' }}>*</span></label>
+                  <input 
+                    type="url" 
+                    className="snack-input"
+                    placeholder="https://snack.expo.dev/@user/project"
+                    value={snackUrl}
+                    onChange={(e) => setSnackUrl(e.target.value)}
+                  />
+                </div>
+                <div className="snack-input-container">
+                  <label className="snack-label">Repositorio de GitHub (opcional):</label>
+                  <input 
+                    type="url" 
+                    className="snack-input"
+                    placeholder="https://github.com/usuario/repositorio"
+                    value={githubUrl}
+                    onChange={(e) => setGithubUrl(e.target.value)}
+                  />
+                </div>
+              </>
             )}
             <button 
               className={`btn-export ${!projectData || !snackUrl.trim() ? 'disabled' : ''}`}
@@ -224,6 +255,8 @@ function App() {
                 screenshots={screenshots} 
                 reportRef={reportRef} 
                 snackUrl={snackUrl}
+                projectTitle={projectTitle}
+                githubUrl={githubUrl}
               />
               
               {isSqaEnabled && (

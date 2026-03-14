@@ -126,7 +126,7 @@ const CodeBlock = ({ content, extension }) => {
   );
 };
 
-export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData, snackUrl }) => {
+export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData, snackUrl, projectTitle, githubUrl }) => {
   if (!projectData) return null;
   const { overview, structure, files } = projectData;
 
@@ -150,14 +150,23 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.cover}>
-          <Text style={styles.title}>Reporte de Documentación del Proyecto</Text>
-          <Text style={styles.subtitle}>{overview.filename}</Text>
+          <Text style={styles.title}>Reporte del Proyecto</Text>
+          <Text style={styles.subtitle}>{projectTitle || overview.filename}</Text>
           
           {snackUrl ? (
-            <View style={{ width: '100%', alignItems: 'center' }}>
-              <Text style={styles.snackLabel}>URL de Snack:</Text>
+            <View style={{ width: '100%', alignItems: 'center', marginBottom: 20 }}>
+              <Text style={styles.snackLabel}>Snack URL:</Text>
               <Link src={snackUrl} style={styles.snackLink}>
                 {snackUrl}
+              </Link>
+            </View>
+          ) : null}
+
+          {githubUrl ? (
+            <View style={{ width: '100%', alignItems: 'center' }}>
+              <Text style={{ ...styles.snackLabel, marginTop: 10 }}>Repositorio de GitHub:</Text>
+              <Link src={githubUrl} style={styles.snackLink}>
+                {githubUrl}
               </Link>
             </View>
           ) : null}

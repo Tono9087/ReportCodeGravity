@@ -11,7 +11,7 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/themes/prism-tomorrow.css'; // A nice dark theme for code blocks
 
-const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl }) => {
+const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl, projectTitle, githubUrl }) => {
   // Trigger PrismJS highlighting when data changes
   useEffect(() => {
     if (projectData && projectData.files) {
@@ -57,14 +57,23 @@ const ReportPreview = ({ projectData, screenshots, reportRef, snackUrl }) => {
       {/* 1. Cover Page */}
       <div className="report-page cover-page">
         <div className="cover-content">
-          <h1>Reporte de Documentación del Proyecto</h1>
-          <h2>{overview.filename}</h2>
+          <h1>Reporte del Proyecto</h1>
+          <h2>{projectTitle || overview.filename}</h2>
           
           {snackUrl && (
-            <div className="cover-snack-section">
-              <h3>URL de Snack:</h3>
+            <div className="cover-snack-section" style={{ marginBottom: '20px' }}>
+              <h3>Snack URL:</h3>
               <a href={snackUrl} target="_blank" rel="noopener noreferrer" className="cover-snack-link">
                 {snackUrl}
+              </a>
+            </div>
+          )}
+
+          {githubUrl && (
+            <div className="cover-snack-section">
+              <h3>Repositorio de GitHub:</h3>
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="cover-snack-link">
+                {githubUrl}
               </a>
             </div>
           )}
