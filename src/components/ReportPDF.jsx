@@ -137,7 +137,7 @@ export const ReportDocument = ({ projectData, screenshots, isSqaEnabled, sqaData
       return (
         <View key={`${level}-${index}`} style={indentStyle}>
           <Text style={isFile ? styles.treeFile : styles.treeFolder}>
-            {isFile ? '  |-- ' : '[Dir] '}
+            {isFile ? '  |-- ' : '[Carpeta] '}
             {key}
           </Text>
           {!isFile && renderTree(value, level + 1)}

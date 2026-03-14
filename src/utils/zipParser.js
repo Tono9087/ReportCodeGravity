@@ -50,8 +50,8 @@ export const loadZipAndGetTree = async (file) => {
       rawZip: zip,
     };
   } catch (error) {
-    console.error('Error loading ZIP:', error);
-    throw new Error('Failed to parse the uploaded ZIP file.');
+    console.error('Error cargando ZIP:', error);
+    throw new Error('Falló al parsear el archivo ZIP subido.');
   }
 };
 
@@ -90,7 +90,7 @@ function groupBy(array, key) {
 }
 
 function determineCategory(parts) {
-  if (parts.length === 1) return 'RootFiles';
+  if (parts.length === 1) return 'Archivos Raíz';
 
   const commonCategories = ['src', 'components', 'pages', 'store', 'utils', 'assets'];
 

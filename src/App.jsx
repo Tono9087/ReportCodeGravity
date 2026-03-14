@@ -29,7 +29,7 @@ function App() {
       const data = await loadZipAndGetTree(file);
       setPendingZipData(data);
     } catch (err) {
-      alert("Error parsing zip file. Validate it is a valid zip and try again.");
+      alert("Error al parsear el archivo zip. Valide que es un zip válido e intente de nuevo.");
     } finally {
       setIsGenerating(false);
     }
@@ -42,7 +42,7 @@ function App() {
       setProjectData(data);
       setPendingZipData(null);
     } catch (err) {
-      alert("Error reading selected files.");
+      alert("Error al leer los archivos seleccionados.");
     } finally {
       setIsGenerating(false);
     }
@@ -111,12 +111,12 @@ function App() {
     if (!projectData) return;
     
     if (!snackUrl.trim()) {
-      alert("Snack URL is required to generate the report.");
+      alert("La URL de Snack es requerida para generar el reporte.");
       return;
     }
     
     if (!snackUrl.trim().startsWith("https://snack.expo.dev/")) {
-      alert("Snack URL must start with https://snack.expo.dev/");
+      alert("La URL de Snack debe comenzar con https://snack.expo.dev/");
       return;
     }
     
@@ -141,7 +141,7 @@ function App() {
       URL.revokeObjectURL(url);
     } catch(err) {
       console.error(err);
-      alert("Error generating PDF.");
+      alert("Error al generar el PDF.");
     } finally {
       setIsGenerating(false);
     }
